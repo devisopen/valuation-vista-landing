@@ -1,7 +1,7 @@
 
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import Features from '@/components/Features';
 import Testimonials from '@/components/Testimonials';
@@ -25,7 +25,6 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background smooth-scroll">
-      <Navbar />
       <Hero />
       <Features />
       <Testimonials />
@@ -48,22 +47,26 @@ const Index = () => {
               Join thousands of real estate professionals who trust ValuationVista for precision property valuations.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <motion.button
+              <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-primary hover:bg-primary/90 text-white font-medium rounded-lg px-6 py-3 transition-colors"
-                onClick={() => window.location.href = '/register'}
               >
-                Request Membership
-              </motion.button>
-              <motion.button
+                <Link to="/register">
+                  <button className="bg-primary hover:bg-primary/90 text-white font-medium rounded-lg px-6 py-3 transition-colors w-full">
+                    Request Membership
+                  </button>
+                </Link>
+              </motion.div>
+              <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-white text-foreground font-medium rounded-lg px-6 py-3 border border-gray-200 hover:bg-gray-50 transition-colors"
-                onClick={() => window.location.href = '/login'}
               >
-                Log In
-              </motion.button>
+                <Link to="/login">
+                  <button className="bg-white text-foreground font-medium rounded-lg px-6 py-3 border border-gray-200 hover:bg-gray-50 transition-colors w-full">
+                    Log In
+                  </button>
+                </Link>
+              </motion.div>
             </div>
           </div>
         </div>

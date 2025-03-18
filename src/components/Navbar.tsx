@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
 import { Building2, Menu, X } from 'lucide-react';
@@ -31,32 +32,32 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
-        <a href="/" className="flex items-center gap-2">
+        <Link to="/" className="flex items-center gap-2">
           <Building2 className="h-8 w-8 text-primary" />
           <span className="font-display text-xl font-medium text-foreground">
             ValuationVista
           </span>
-        </a>
+        </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
-          <a href="#features" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
+          <Link to="#features" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
             Features
-          </a>
-          <a href="#testimonials" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
+          </Link>
+          <Link to="#testimonials" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
             Testimonials
-          </a>
-          <a href="#pricing" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
+          </Link>
+          <Link to="#pricing" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
             Pricing
-          </a>
+          </Link>
         </nav>
 
         <div className="hidden md:flex items-center space-x-4">
-          <Button variant="ghost" className="text-sm font-medium" onClick={() => window.location.href = '/login'}>
-            Log In
+          <Button variant="ghost" className="text-sm font-medium" asChild>
+            <Link to="/login">Log In</Link>
           </Button>
-          <Button className="bg-primary hover:bg-primary/90 text-sm font-medium" onClick={() => window.location.href = '/register'}>
-            Request Membership
+          <Button className="bg-primary hover:bg-primary/90 text-sm font-medium" asChild>
+            <Link to="/register">Request Membership</Link>
           </Button>
         </div>
 
@@ -79,33 +80,33 @@ const Navbar = () => {
           className="md:hidden glass-card"
         >
           <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
-            <a 
-              href="#features" 
+            <Link 
+              to="#features" 
               className="text-foreground/80 hover:text-primary py-2 transition-colors"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Features
-            </a>
-            <a 
-              href="#testimonials" 
+            </Link>
+            <Link 
+              to="#testimonials" 
               className="text-foreground/80 hover:text-primary py-2 transition-colors"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Testimonials
-            </a>
-            <a 
-              href="#pricing" 
+            </Link>
+            <Link 
+              to="#pricing" 
               className="text-foreground/80 hover:text-primary py-2 transition-colors"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Pricing
-            </a>
+            </Link>
             <div className="flex flex-col pt-4 space-y-3 border-t border-gray-200">
-              <Button variant="ghost" className="justify-center text-sm w-full" onClick={() => window.location.href = '/login'}>
-                Log In
+              <Button variant="ghost" className="justify-center text-sm w-full" asChild>
+                <Link to="/login">Log In</Link>
               </Button>
-              <Button className="bg-primary hover:bg-primary/90 justify-center text-sm w-full" onClick={() => window.location.href = '/register'}>
-                Request Membership
+              <Button className="bg-primary hover:bg-primary/90 justify-center text-sm w-full" asChild>
+                <Link to="/register">Request Membership</Link>
               </Button>
             </div>
           </div>

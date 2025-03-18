@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
 import { ArrowRight, BarChart3, Building, PieChart } from 'lucide-react';
@@ -35,17 +36,19 @@ const Hero = () => {
               <Button 
                 size="lg" 
                 className="bg-primary hover:bg-primary/90 text-white font-medium"
-                onClick={() => window.location.href = '/register'}
+                asChild
               >
-                Request Membership <ArrowRight className="ml-2 h-4 w-4" />
+                <Link to="/register">
+                  Request Membership <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
               </Button>
               <Button 
                 size="lg" 
                 variant="outline" 
                 className="border-primary/20 text-foreground font-medium"
-                onClick={() => window.location.href = '/login'}
+                asChild
               >
-                Log In
+                <Link to="/login">Log In</Link>
               </Button>
             </motion.div>
 
