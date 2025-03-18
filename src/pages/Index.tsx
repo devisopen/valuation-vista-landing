@@ -6,8 +6,11 @@ import Hero from '@/components/Hero';
 import Features from '@/components/Features';
 import Testimonials from '@/components/Testimonials';
 import Footer from '@/components/Footer';
+import { useToast } from "@/hooks/use-toast";
 
 const Index = () => {
+  const { toast } = useToast();
+
   useEffect(() => {
     // Smooth scroll behavior for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -22,6 +25,20 @@ const Index = () => {
       });
     });
   }, []);
+
+  const handleRequestMembership = () => {
+    toast({
+      title: "Request Membership",
+      description: "Redirecting you to our registration page."
+    });
+  };
+
+  const handleLogin = () => {
+    toast({
+      title: "Login",
+      description: "Redirecting you to our login page."
+    });
+  };
 
   return (
     <div className="min-h-screen bg-background smooth-scroll">
@@ -51,7 +68,7 @@ const Index = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Link to="/register">
+                <Link to="/register" onClick={handleRequestMembership}>
                   <button className="bg-primary hover:bg-primary/90 text-white font-medium rounded-lg px-6 py-3 transition-colors w-full">
                     Request Membership
                   </button>
@@ -61,7 +78,7 @@ const Index = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Link to="/login">
+                <Link to="/login" onClick={handleLogin}>
                   <button className="bg-white text-foreground font-medium rounded-lg px-6 py-3 border border-gray-200 hover:bg-gray-50 transition-colors w-full">
                     Log In
                   </button>
